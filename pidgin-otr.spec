@@ -1,26 +1,30 @@
 %define	version	3.0.0
-%define release	%mkrel 3
+%define release	%mkrel 1
+%define oname gaim-otr
 
-Summary:	GAIM plugin that implements Off-the-Record Messaging
-Name:		gaim-otr
+Summary:	Pidgin plugin that implements Off-the-Record Messaging
+Name:		pidgin-otr
 Version:	%{version}
 Release:	%{release}
 License:	GPL
 Group:		Networking/Instant messaging
 URL:		http://www.cypherpunks.ca/otr/
-Source0:	http://www.cypherpunks.ca/otr/%{name}-%{version}.tar.gz
-Source1:	http://www.cypherpunks.ca/otr/%{name}-%{version}.tar.gz.asc
+Source0:	http://www.cypherpunks.ca/otr/%{oname}-%{version}.tar.gz
+Source1:	http://www.cypherpunks.ca/otr/%{oname}-%{version}.tar.gz.asc
 Patch0:		gaim-otr-3.0.0-gaim2beta.patch
+Patch1:         gaim-otr-3.0.0-pidgin.patch
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	gaim-devel
+BuildRequires:	pidgin-devel
 BuildRequires:	libotr-devel >= 3.0.0
 BuildRequires:	gtk2-devel >= 2.4
 BuildRequires:	libgcrypt-devel >= 1.2.0
-Requires:	gaim
+Requires:	pidgin
+Provides: gaim-otr
+Obsoletes: gaim-otr
 
 %description
-This is a plugin for gaim 1.x which implements Off-the-Record
-Messaging over any IM network gaim supports.
+This is a plugin for pidgin which implements Off-the-Record
+Messaging over any IM network pidgin supports.
 
 OTR allows you to have private conversations over IM by providing:
  - Encryption
@@ -38,8 +42,12 @@ OTR allows you to have private conversations over IM by providing:
      is compromised.
 
 %prep
-%setup -q
+%setup -q -n %oname-%version
 %patch0 -p1 -b .gaim2beta
+%patch1 -p1 -b .pidgin
+aclocal
+autoconf
+automake -a -c
 
 %build
 %configure2_5x
@@ -50,7 +58,7 @@ rm -rf %{buildroot}
 %makeinstall_std
 
 # remove unneeded file
-rm -f %{buildroot}%{_libdir}/gaim/*.la
+rm -f %{buildroot}%{_libdir}/pidgin/*.la
 
 %clean
 rm -rf %{buildroot}
@@ -58,6 +66,6 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog NEWS README
-%{_libdir}/gaim/*.so
+%{_libdir}/pidgin/*.so
 
 
