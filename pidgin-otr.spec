@@ -1,6 +1,5 @@
-%define	version	3.0.0
+%define	version	3.1.0
 %define release	%mkrel 1
-%define oname gaim-otr
 
 Summary:	Pidgin plugin that implements Off-the-Record Messaging
 Name:		pidgin-otr
@@ -9,13 +8,11 @@ Release:	%{release}
 License:	GPL
 Group:		Networking/Instant messaging
 URL:		http://www.cypherpunks.ca/otr/
-Source0:	http://www.cypherpunks.ca/otr/%{oname}-%{version}.tar.gz
-Source1:	http://www.cypherpunks.ca/otr/%{oname}-%{version}.tar.gz.asc
-Patch0:		gaim-otr-3.0.0-gaim2beta.patch
-Patch1:         gaim-otr-3.0.0-pidgin.patch
+Source0:	http://www.cypherpunks.ca/otr/%{name}-%{version}.tar.gz
+Source1:	http://www.cypherpunks.ca/otr/%{name}-%{version}.tar.gz.asc
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	pidgin-devel
-BuildRequires:	libotr-devel >= 3.0.0
+BuildRequires:	libotr-devel >= 3.1.0
 BuildRequires:	gtk2-devel >= 2.4
 BuildRequires:	libgcrypt-devel >= 1.2.0
 Requires:	pidgin
@@ -42,28 +39,25 @@ OTR allows you to have private conversations over IM by providing:
      is compromised.
 
 %prep
-%setup -q -n %oname-%version
-%patch0 -p1 -b .gaim2beta
-%patch1 -p1 -b .pidgin
-aclocal
-autoconf
-automake -a -c
+%setup -q
 
 %build
 %configure2_5x
 %make
 
 %install
-rm -rf %{buildroot}
+rm -rf %{buildroot} %name.lang
 %makeinstall_std
 
 # remove unneeded file
 rm -f %{buildroot}%{_libdir}/pidgin/*.la
 
+%find_lang %name
+
 %clean
 rm -rf %{buildroot}
 
-%files
+%files -f %name.lang
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog NEWS README
 %{_libdir}/pidgin/*.so
