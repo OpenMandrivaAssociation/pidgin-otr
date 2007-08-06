@@ -15,6 +15,7 @@ BuildRequires:	pidgin-devel
 BuildRequires:	libotr-devel >= 3.1.0
 BuildRequires:	gtk2-devel >= 2.4
 BuildRequires:	libgcrypt-devel >= 1.2.0
+BuildRequires:	perl-XML-Parser
 Requires:	pidgin
 Provides: gaim-otr
 Obsoletes: gaim-otr
