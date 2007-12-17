@@ -10,7 +10,6 @@ Group:		Networking/Instant messaging
 URL:		http://www.cypherpunks.ca/otr/
 Source0:	http://www.cypherpunks.ca/otr/%{name}-%{version}.tar.gz
 Source1:	http://www.cypherpunks.ca/otr/%{name}-%{version}.tar.gz.asc
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	pidgin-devel
 BuildRequires:	libotr-devel >= 3.1.0
 BuildRequires:	gtk2-devel >= 2.4
