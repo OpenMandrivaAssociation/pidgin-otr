@@ -1,5 +1,5 @@
-%define	version	3.1.0
-%define release	%mkrel 3
+%define	version	3.2.0
+%define release	%mkrel 1
 
 Summary:	Pidgin plugin that implements Off-the-Record Messaging
 Name:		pidgin-otr
@@ -12,7 +12,7 @@ Source0:	http://www.cypherpunks.ca/otr/%{name}-%{version}.tar.gz
 Source1:	http://www.cypherpunks.ca/otr/%{name}-%{version}.tar.gz.asc
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	pidgin-devel
-BuildRequires:	libotr-devel >= 3.1.0
+BuildRequires:	libotr-devel >= %{version}
 BuildRequires:	gtk2-devel >= 2.4
 BuildRequires:	libgcrypt-devel >= 1.2.0
 BuildRequires:	perl-XML-Parser
