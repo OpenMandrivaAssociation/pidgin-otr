@@ -10,7 +10,6 @@ Group:		Networking/Instant messaging
 URL:		http://www.cypherpunks.ca/otr/
 Source0:	http://www.cypherpunks.ca/otr/%{name}-%{version}.tar.gz
 Source1:	http://www.cypherpunks.ca/otr/%{name}-%{version}.tar.gz.asc
-Patch:		pidgin-otr-3.2.0-format-string.patch
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	pidgin-devel
 BuildRequires:	libotr-devel >= 3.2.0-5.1
@@ -42,7 +41,6 @@ OTR allows you to have private conversations over IM by providing:
 
 %prep
 %setup -q
-%patch -p1
 
 %build
 %configure2_5x
