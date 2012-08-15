@@ -13,7 +13,7 @@ Source1:	http://www.cypherpunks.ca/otr/%{name}-%{version}.tar.gz.asc
 Patch:		pidgin-otr-3.2.0-format-string.patch
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	pidgin-devel
-BuildRequires:	libotr-devel >= %{version}
+BuildRequires:	libotr-devel >= 3.2.0-5.1
 BuildRequires:	gtk2-devel >= 2.4
 BuildRequires:	libgcrypt-devel >= 1.2.0
 BuildRequires:	perl-XML-Parser
