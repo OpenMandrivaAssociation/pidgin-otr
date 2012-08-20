@@ -1,5 +1,5 @@
 %define	version	3.2.1
-%define release	%mkrel 1
+%define release	%mkrel 2
 
 Summary:	Pidgin plugin that implements Off-the-Record Messaging
 Name:		pidgin-otr
