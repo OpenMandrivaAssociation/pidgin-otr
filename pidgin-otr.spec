@@ -1,3 +1,5 @@
+%define _disable_ld_no_undefined 1
+
 Summary:	Pidgin plugin that implements Off-the-Record Messaging
 Name:		pidgin-otr
 Version:	4.0.0
