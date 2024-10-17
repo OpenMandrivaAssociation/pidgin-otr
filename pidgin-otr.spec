@@ -6,7 +6,7 @@ Version:	4.0.2
 Release:	1
 License:	GPLv2+
 Group:		Networking/Instant messaging
-Url:		http://www.cypherpunks.ca/otr/
+Url:		https://www.cypherpunks.ca/otr/
 Source0:	http://www.cypherpunks.ca/otr/%{name}-%{version}.tar.gz
 Source1:	http://www.cypherpunks.ca/otr/%{name}-%{version}.tar.gz.asc
 BuildRequires:	intltool
